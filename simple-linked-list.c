@@ -25,6 +25,18 @@ void insert(int newValue) {
   }
 }
 
+void delete(int value) {
+  struct Node *current = head;
+
+  while(current->next != NULL) {
+    if(current->next->value == value) {
+      current->next = current->next->next;
+    } else {
+      current = current->next;
+    }
+  }
+}
+
 void print() {
   struct Node *current = head;
   while(current != NULL) {
@@ -39,6 +51,8 @@ int main() {
   insert(10);
   insert(20);
   insert(5);
+
+  delete(20);
 
   print();
 
